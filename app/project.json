@@ -1,0 +1,18 @@
+{
+  "webroot": "./",
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.AspNet.Hosting": "1.0.0-beta7",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta7",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta7"
+  },
+
+  "commands": {
+    "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini"
+  },
+
+  "frameworks": {
+    "dnxcore50": {}
+  }
+}

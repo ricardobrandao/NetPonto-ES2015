@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<title>NetPonto - Future Web Applications</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<script src="jspm_packages/system.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire.bind(System);
+	</script>
+	<script src='config.js'></script>
+	<!--<script src='config-dev.js'></script>-->
+</head>
+
+<body>
+	<div data-bind="visible: !isInitialized()">
+		<img src="gears.svg" style="margin-top: 200px; margin-left: 45%">
+	</div>
+
+	<div data-bind="visible: isInitialized" class="page-header" style="display: none">
+		<h1>Future Web Applications <small>ECMAScript 2015 and more</small></h1>
+	</div>
+
+	<div data-bind="visible: isInitialized()" class="container" style="display: none">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">People</h3>
+			</div>
+			<div class="panel-body">
+				<h4>Add a person</h4>
+				<form class="form-inline">
+					<input data-bind="textInput: personToAdd().firstName" class="form-control" placeholder="First Name">
+					<input data-bind="textInput: personToAdd().lastName" class="form-control" placeholder="Last Name">
+					<button data-bind="click: addPerson" class="btn btn-md btn-primary">add</button>
+				</form>
+				<hr>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Full Name</th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: people">
+						<tr>
+							<td data-bind="text: $root.people.indexOf($data) + 1"></td>
+							<td data-bind="text: firstName"></td>
+							<td data-bind="text: lastName"></td>
+							<td data-bind="text: fullName"></td>
+							<td>
+								<button data-bind="click: $root.removePerson" type="button" class="btn btn-sm btn-danger" aria-label="Remove">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+						<tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Students</h3>
+			</div>
+			<div class="panel-body">
+				<h4>Add a student</h4>
+				<form class="form-inline">
+					<input data-bind="textInput: studentToAdd().firstName" class="form-control" placeholder="First Name">
+					<input data-bind="textInput: studentToAdd().lastName" class="form-control" placeholder="Last Name">
+					<input data-bind="textInput: studentToAdd().schoolName" class="form-control" placeholder="School Name">
+					<button data-bind="click: addStudent" class="btn btn-md btn-primary">add</button>
+				</form>
+				<hr>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Full Name</th>
+							<th>School Name</th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: students">
+						<tr>
+							<td data-bind="text: $root.students.indexOf($data) + 1"></td>
+							<td data-bind="text: firstName"></td>
+							<td data-bind="text: lastName"></td>
+							<td data-bind="text: fullName"></td>
+							<td data-bind="text: schoolName"></td>
+							<td>
+								<button data-bind="click: studentInformation" type="button" class="btn btn-sm btn-primary" aria-label="Print">
+									<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+								</button>
+								<button data-bind="click: $root.removeStudent" type="button" class="btn btn-sm btn-danger" aria-label="Remove">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+						<tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		System.import('index-bootstrapper');
+	</script>
+</body>
+
+</html>
