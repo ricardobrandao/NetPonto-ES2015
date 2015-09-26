@@ -1,0 +1,14 @@
+# exclude libraries
+/app/jspm_packages
+# exclude node modules
+/app/node_modules
+
+# exclude the dist folder since we have tasks to build it
+/app/dist
+/app/dev
+
+# exclude locked dnx project file
+/app/project.lock.json
+
+# exclude vscode files
+/.vscode
