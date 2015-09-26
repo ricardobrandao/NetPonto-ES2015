@@ -43,4 +43,4 @@ jspm update
 	dnx kestrel
 	```	
 
-6. Open your Application (**default url is http://localhost:5000/index.html)
+6. Open your Application (**default url is [http://localhost:5000/index.html](http://localhost:5000/index.html)**)
